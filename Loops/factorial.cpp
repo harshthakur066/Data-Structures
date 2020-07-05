@@ -1,3 +1,5 @@
+// O(n)
+
 #include <iostream>
 
 int factorial(int n)

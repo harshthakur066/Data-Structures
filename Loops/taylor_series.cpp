@@ -1,3 +1,5 @@
+// O(n)
+
 #include <iostream>
 
 double taylor(double x, double n)

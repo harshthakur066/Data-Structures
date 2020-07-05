@@ -1,4 +1,4 @@
-// O(n)
+// O(n) --> multiplications
 
 #include <iostream>
 
