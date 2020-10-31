@@ -1,3 +1,3 @@
-# Data Structures And Algorithms using C and C++
+# Data Structures And Algorithms 
 
 My DS code for important topics
