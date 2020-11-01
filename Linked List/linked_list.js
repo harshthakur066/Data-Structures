@@ -1,6 +1,6 @@
 // 10-->15-->99
 
-const linkedListDemo = {
+let linkedListDemo = {
   head: {
     value: 10,
     next: {
@@ -22,8 +22,21 @@ class LinkedList {
     this.tail = this.head;
     this.length = 1;
   }
+
+  // Append
+  append(value) {
+    const newNode = {
+      value: value,
+      next: null,
+    };
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+  }
 }
 
 const linkedList = new LinkedList(10);
+linkedList.append(15);
+linkedList.append(99);
 
-console.log(linkedList2);
+console.log(linkedList);
