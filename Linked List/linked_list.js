@@ -13,6 +13,13 @@ let linkedListDemo = {
   },
 };
 
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
 class LinkedList {
   constructor(value) {
     this.head = {
@@ -25,12 +32,17 @@ class LinkedList {
 
   // Append
   append(value) {
-    const newNode = {
-      value: value,
-      next: null,
-    };
+    const newNode = new Node(value);
     this.tail.next = newNode;
     this.tail = newNode;
+    this.length++;
+  }
+
+  // Prepend
+  prepend(value) {
+    const newNode = new Node(value);
+    newNode.next = this.head;
+    this.head = newNode;
     this.length++;
   }
 }
@@ -38,5 +50,7 @@ class LinkedList {
 const linkedList = new LinkedList(10);
 linkedList.append(15);
 linkedList.append(99);
+linkedList.prepend(1);
+linkedList.prepend(33);
 
 console.log(linkedList);
