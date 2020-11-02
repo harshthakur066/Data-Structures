@@ -114,6 +114,26 @@ class LinkedList {
 
     this.length--;
   }
+
+  // Reverse
+  reverse() {
+    if (this.length === 1) {
+      return this.head;
+    }
+
+    this.tail = this.head;
+    let first = this.head;
+    let second = first.next;
+
+    while (second) {
+      const temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head.next = null;
+    this.head = first;
+  }
 }
 
 const linkedList = new LinkedList(10);
@@ -125,6 +145,7 @@ linkedList.insert(3, 68);
 linkedList.insert(6, 79);
 linkedList.remove(0);
 linkedList.remove(4);
+linkedList.reverse();
 
 const list = linkedList.printList();
 console.log(list.join(" --> "));
