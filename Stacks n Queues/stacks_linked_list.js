@@ -12,11 +12,13 @@ class Stack {
     this.length = 0;
   }
 
+  // O(1)
   peek() {
     console.log(this.top);
     return this.top;
   }
 
+  // O(1)
   push(value) {
     const newNode = new Node(value);
     if (this.length === 0) {
@@ -30,6 +32,7 @@ class Stack {
     this.length++;
   }
 
+  // O(1)
   pop() {
     if (!this.top) {
       return null;
@@ -41,12 +44,14 @@ class Stack {
     this.length--;
   }
 
+  // O(1)
   isEmpty() {
     if (this.bottom) {
       return false;
     } else return true;
   }
 
+  // O(n)
   printStack() {
     const arr = [];
     let currentNode = this.top;

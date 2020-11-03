@@ -11,10 +11,14 @@ class Queue {
     this.last = null;
     this.length = 0;
   }
+
+  // O(1)
   peek() {
     console.log(this.first);
     return this.first;
   }
+
+  // O(1)
   enqueue(value) {
     const newNode = new Node(value);
     if (this.length === 0) {
@@ -26,6 +30,8 @@ class Queue {
     }
     this.length++;
   }
+
+  // O(1)
   dequeue() {
     if (!this.first) {
       return null;
@@ -36,6 +42,8 @@ class Queue {
     this.first = this.first.next;
     this.length--;
   }
+
+  // O(1)
   isEmpty() {
     if (this.length === 0) {
       return true;
@@ -44,6 +52,7 @@ class Queue {
     }
   }
 
+  // O(n)
   printQueue() {
     const arr = [];
     let currentNode = this.first;
@@ -66,8 +75,3 @@ myQueue.peek();
 const list = myQueue.printQueue();
 console.log(list.join(" <-- "));
 console.log(myQueue.length);
-
-//Joy
-//Matt
-//Pavel
-//Samir

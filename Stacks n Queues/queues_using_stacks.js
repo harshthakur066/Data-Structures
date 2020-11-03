@@ -6,6 +6,7 @@ class QueueUsingStacks {
     this.last = [];
   }
 
+  // O(n)
   enqueue(value) {
     const length = this.first.length;
     for (let i = 0; i < length; i++) {
@@ -15,6 +16,7 @@ class QueueUsingStacks {
     return this;
   }
 
+  // O(n)
   dequeue() {
     const length = this.last.length;
     for (let i = 0; i < length; i++) {
@@ -23,6 +25,8 @@ class QueueUsingStacks {
     this.first.pop();
     return this;
   }
+
+  // O(1)
   peek() {
     if (this.last.length > 0) {
       console.log(this.last[0]);
