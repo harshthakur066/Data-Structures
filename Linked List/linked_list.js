@@ -30,7 +30,7 @@ class LinkedList {
     this.length = 1;
   }
 
-  // Lookup
+  // Lookup - O(n)
   printList() {
     const arr = [];
     let currentNode = this.head;
@@ -41,7 +41,7 @@ class LinkedList {
     return arr;
   }
 
-  // Append
+  // Append - O(1)
   append(value) {
     const newNode = new Node(value);
 
@@ -51,7 +51,7 @@ class LinkedList {
     this.length++;
   }
 
-  // Prepend
+  // Prepend - O(1)
   prepend(value) {
     const newNode = new Node(value);
 
@@ -61,7 +61,7 @@ class LinkedList {
     this.length++;
   }
 
-  // Traversal
+  // Traversal - O(n)
   traverse(index) {
     let counter = 0;
     let currentNode = this.head;
@@ -74,7 +74,7 @@ class LinkedList {
     return currentNode;
   }
 
-  //Insert
+  //Insert - O(n)
   insert(index, value) {
     if (index >= this.length) {
       return this.append(value);
@@ -93,7 +93,7 @@ class LinkedList {
     this.length++;
   }
 
-  // Remove or Delete
+  // Remove or Delete - O(n)
   remove(index) {
     if (index >= this.length) {
       //   const leader = this.traverse(this.length - 2);
@@ -115,7 +115,7 @@ class LinkedList {
     this.length--;
   }
 
-  // Reverse
+  // Reverse - O(n)
   reverse() {
     if (this.length === 1) {
       return this.head;
