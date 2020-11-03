@@ -71,7 +71,3 @@ myStack.peek();
 const list = myStack.printStack();
 console.log(list.join(" --> "));
 console.log(myStack.length);
-
-//Discord
-//Udemy
-//google
