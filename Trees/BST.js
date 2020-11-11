@@ -10,6 +10,8 @@ class BinarySearchTree {
   constructor() {
     this.root = null;
   }
+
+  //O(log n)
   insert(value) {
     const newNode = new Node(value);
     if (this.root === null) {
@@ -33,9 +35,11 @@ class BinarySearchTree {
       }
     }
   }
+
+  //O(log n)
   lookup(value) {
     if (!this.root) {
-      return false;
+      return null;
     }
     let currentNode = this.root;
     while (currentNode) {
@@ -49,9 +53,20 @@ class BinarySearchTree {
       }
     }
     console.log("Not Found");
-    return false;
+    return null;
   }
-  // remove
+
+  //O(log n)
+  //   remove(value) {
+  //     currentNode = this.lookup(value);
+  //     if(currentNode === null) {
+  //         console.log('No element such found to remove');
+  //         return;
+  //     }
+  //     if(currentNode.left === null && currentNode.right === null) {
+
+  //     }
+  //   }
 }
 
 const tree = new BinarySearchTree();
@@ -65,7 +80,8 @@ tree.insert(1);
 tree.insert(80);
 
 // console.log(tree);
-JSON.stringify(traverse(tree.root));
+// JSON.stringify(traverseRecursion(tree.root));
+JSON.stringify(traverseLoop(tree.root));
 
 console.log("Lookup");
 tree.lookup(20);
@@ -73,10 +89,29 @@ tree.lookup(20);
 //  4     20
 //1  6  15  170
 
-function traverse(node) {
+// Pre Order Traversal using Recursion
+function traverseRecursion(node) {
   const tree = { value: node.value };
   tree.left = node.left === null ? null : traverse(node.left);
   tree.right = node.right === null ? null : traverse(node.right);
   console.log(tree);
   return tree;
+}
+
+// Pre Order Traversal using Loop --> with the help of stack
+function traverseLoop(node) {
+  const stack = [];
+  let tree = new Node(node.value);
+  while (node !== null || stack.length !== 0) {
+    if (node !== null) {
+      tree = node;
+      stack.push(node);
+      node = node.left;
+      console.log(tree);
+      return tree;
+    } else {
+      node = stack.pop();
+      node = node.right;
+    }
+  }
 }
