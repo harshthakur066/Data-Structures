@@ -134,7 +134,85 @@ class BinarySearchTree {
       }
     }
   }
+
+  // O(n) Traversal
+  breadthFirstSearch() {
+    let currentNode = this.root;
+    let list = [];
+    let queue = [];
+
+    queue.push(currentNode);
+
+    while (queue.length > 0) {
+      currentNode = queue.shift();
+      list.push(currentNode.value);
+      if (currentNode.left) {
+        queue.push(currentNode.left);
+      }
+      if (currentNode.right) {
+        queue.push(currentNode.right);
+      }
+    }
+    console.log(list);
+    return list;
+  }
+
+  // O(n) Traversal
+  // DFS is the traversal like preorder, inorder, and postorder
+  DFTPreOrder(currentNode, list) {
+    return traversePreOrder(this.root, []);
+  }
+  DFTPostOrder() {
+    return traversePostOrder(this.root, []);
+  }
+  DFTInOrder() {
+    return traverseInOrder(this.root, []);
+  }
 }
+
+function traversePreOrder(node, list) {
+  list.push(node.value);
+
+  if (node.left) {
+    traversePreOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePreOrder(node.right, list);
+  }
+  return list;
+}
+
+function traverseInOrder(node, list) {
+  if (node.left) {
+    traverseInOrder(node.left, list);
+  }
+
+  list.push(node.value);
+
+  if (node.right) {
+    traverseInOrder(node.right, list);
+  }
+  return list;
+}
+
+function traversePostOrder(node, list) {
+  if (node.left) {
+    traversePostOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePostOrder(node.right, list);
+  }
+
+  list.push(node.value);
+
+  return list;
+}
+
+// BFS space complexity is O(n)i.e the size of queue whereas in DFS the
+// space complexity is O(log n) i.e. height of the tree as it usese
+// stack for recursion or in loop.
+// Time complexity is same O(n) as both of them have to visit each element once.
+// Explanation - https://stackoverflow.com/questions/9844193/what-is-the-time-and-space-complexity-of-a-breadth-first-and-depth-first-tree-tr
 
 const tree = new BinarySearchTree();
 tree.insert(9);
@@ -145,8 +223,11 @@ tree.insert(170);
 tree.insert(15);
 tree.insert(1);
 tree.insert(80);
-tree.insert(13);
-tree.remove(20);
+tree.remove(80);
+
+//     9
+//  4     20
+//1  6  15  170
 
 // console.log(tree);
 // JSON.stringify(traverseRecursion(tree.root));
@@ -154,9 +235,13 @@ JSON.stringify(traverseLoop(tree.root));
 
 console.log("Lookup");
 tree.lookup(9);
-//     9
-//  4     20
-//1  6  15  170
+
+console.log("BFS");
+tree.breadthFirstSearch();
+
+console.log("DFS-preorder", tree.DFTPreOrder());
+console.log("DFS-inorder", tree.DFTInOrder());
+console.log("DFS-postorder", tree.DFTPostOrder());
 
 // Pre Order Traversal using Recursion
 function traverseRecursion(node) {
