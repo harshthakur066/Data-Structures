@@ -22,7 +22,7 @@ function firstRecurringCharacter(input) {
     } else {
       map[input[i]] = i;
     }
-    // console.log(map);
+    console.log("map", map);
   }
   return undefined;
 }
