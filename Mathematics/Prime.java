@@ -16,7 +16,8 @@ public class Prime {
     }
 
     // Best and Optimezed method 3rd time faster than the previous one
-    // O(n) [skipping over 6 and checking 2 conditons in one loop]
+    // Complexity = O(sqrRoot(n)) [skipping over 6 and checking 2 conditons in one
+    // loop]
     static boolean optimizedIsPrime(int n) {
         if (n == 1)
             return false;
