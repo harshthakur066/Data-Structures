@@ -10,8 +10,10 @@ void TOH(int n, int A, int B, int C)
     {
         TOH(n - 1, A, C, B);
         cout << "from " << A << " to " << C << endl;
+        // count++;
         TOH(n - 1, B, A, C);
     }
+    // cout << count << endl;
 }
 
 int main()
